@@ -42,7 +42,7 @@ if [ "${num}" == "3" ]
 then
 cd /tmp
 rm -rf *.sh
-curl https://raw.githubusercontent.com/Hank-Zhu/miwifi-ss/master/mini/mini_ss.sh -o mini_ss.sh
+curl https://raw.githubusercontent.com/gaiqs/miwifi-ss/master/mini/mini_ss.sh -o mini_ss.sh
 chmod -R 777 mini_ss.sh
 ./mini_ss.sh
 fi
@@ -78,4 +78,3 @@ if [ "${num}" == "0" ]
 then
 exit
 fi
-
