@@ -48,7 +48,7 @@ cat > /etc/shadowsocks.json<<-EOF
   "local_address":"127.0.0.1",
   "local_port":1081,
   "password":"${shadowsockspwd}",
-  "timeout":600,
+  "timeout":60,
   "method":"${method}"
 }
 EOF
