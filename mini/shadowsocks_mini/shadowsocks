@@ -6,13 +6,14 @@ START=95
 SERVICE_USE_PID=1
 SERVICE_WRITE_PID=1
 SERVICE_DAEMONIZE=1
-CONFIG_FILE=/etc/shadowsocks.json
-
+CONFIG=/etc/shadowsocks.json
 
 start() {
-    service_start /data/usr/sbin/ss-redir -c $CONFIG_FILE -b 0.0.0.0
+  # Proxy Mode
+  service_start /data/usr/sbin/ss-redir -c $CONFIG -b 0.0.0.0
 }
 
 stop() {
-    service_stop /data/usr/sbin/ss-redir
+  # Proxy Mode
+  service_stop /data/usr/sbin/ss-redir
 }
