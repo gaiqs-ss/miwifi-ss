@@ -15,10 +15,12 @@ rm -f shadowsocks_mini.tar.gz
 curl https://raw.githubusercontent.com/gaiqs/miwifi-ss/master/mini/shadowsocks_mini.tar.gz -o shadowsocks_mini.tar.gz
 tar zxf shadowsocks_mini.tar.gz
 
-# install shadowsocks ss-redir to /data/usr/sbin
-mkdir -p /data/usr/sbin
-cp -f ./shadowsocks_mini/ss-redir  /data/usr/sbin/ss-redir
-chmod +x /data/usr/sbin/ss-redir
+# install shadowsocks ss-redir to /userdisk/sysapihttpd/shadowsocks/bin
+# all data in /userdisk/sysapihttpd directory would not reset by system configure reset
+# cannot create directory in /userdisk, Read-only file system
+mkdir -p /userdisk/sysapihttpd/shadowsocks/bin
+cp -f ./shadowsocks_mini/ss-redir  /userdisk/sysapihttpd/shadowsocks/bin
+chmod +x /userdisk/sysapihttpd/shadowsocks/bin/ss-redir
 
 # Config shadowsocks init script
 cp ./shadowsocks_mini/shadowsocks /etc/init.d/shadowsocks
@@ -48,7 +50,7 @@ cat > /etc/shadowsocks.json<<-EOF
   "local_address":"127.0.0.1",
   "local_port":1081,
   "password":"${shadowsockspwd}",
-  "timeout":60,
+  "timeout":600,
   "method":"${method}"
 }
 EOF
